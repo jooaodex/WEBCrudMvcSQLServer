@@ -1,8 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using WEBCrudMvcSQLServer.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<Contexto>
+    (options => options.UseSqlServer("Server=DESKTOP-3AGOP5F\\SQLEXPRESS;Database=dbCrud;Trusted_Connection=True"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
